@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncord - We Pay, You Save</title>
+    <style>
+        :root {
+            --primary: #4e44ce;
+            --secondary: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 1.5rem 0;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #7a6cf7 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        
+        .services {
+            background-color: white;
+        }
+        
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .platforms {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .platform-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+        
+        .platform:hover {
+            transform: scale(1.05);
+        }
+        
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .platform-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .platform h3 {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        
+        .features {
+            background-color: #f1f2f9;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        .feature-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .pricing {
+            background-color: white;
+        }
+        
+        .pricing-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            padding: 2rem;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-features i {
+            color: var(--success);
+            margin-right: 0.5rem;
+        }
+        
+        .pricing-cta {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .testimonials {
+            background-color: #f1f2f9;
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #7a6cf7 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .feature {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Un<span>cord</span></div>
+            <div class="nav-links">
+                <a href="#services">How It Works</a>
+                <a href="#platforms">Platforms</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#cta">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>We Pay, You Save</h1>
+            <p>Manage your streaming subscriptions effortlessly. Subscribe only when you need, save when you don't.</p>
+            <a href="#cta" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <h2 class="section-title">How Uncord Works</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="card-header">
+                    <i class="fas fa-link"></i>
+                    <h3>Connect</h3>
+                </div>
+                <div class="card-body">
+                    <p>Link your existing streaming accounts to Uncord. No need to create new accounts or lose your preferences.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="card-header">
+                    <i class="fas fa-sliders-h"></i>
+                    <h3>Manage</h3>
+                </div>
+                <div class="card-body">
+                    <p>Control all your subscriptions from one dashboard. Turn them on and off with a single click.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="card-header">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Save</h3>
+                </div>
+                <div class="card-body">
+                    <p>Only pay for what you actually use each month. No more forgotten subscriptions draining your wallet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="platforms" id="platforms">
+        <h2 class="section-title">Supported Platforms</h2>
+        <div class="platform-logos">
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fab fa-netflix"></i>
+                </div>
+                <h3>Netflix</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fab fa-amazon"></i>
+                </div>
+                <h3>Amazon Prime</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <h3>Disney+</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h3>Paramount+</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>TNT</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>MAX</h3>
+            </div>
+            
+            <div class="platform">
+                <div class="platform-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <h3>NOW TV</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <h2 class="section-title">Features</h2>
+        <div class="features-container">
+            <div class="feature">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="feature-content">
+                    <h3>Pay Only When You Need</h3>
+                    <p>Only pay for subscriptions in months when you actually use them. No more wasted money.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-tv"></i>
+                <div class="feature-content">
+                    <h3>Hit Show Out? Subscribe.</h3>
+                    <p>New season of your favorite show? Quickly activate that subscription, then pause when you're done.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-futbol"></i>
+                <div class="feature-content">
+                    <h3>Sports Season Management</h3>
+                    <p>Transfer out your sports subscription during the off-season. Reactivate when games return.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-user-circle"></i>
+                <div class="feature-content">
+                    <h3>Same Account, Different Payment</h3>
+                    <p>Keep all your preferences, watchlists, and history. We just manage the payment part.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-credit-card"></i>
+                <div class="feature-content">
+                    <h3>Direct Debit Management</h3>
+                    <p>Set up automatic payments that adapt to your subscription choices. Complete control, zero hassle.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-globe"></i>
+                <div class="feature-content">
+                    <h3>Centralized Dashboard</h3>
+                    <p>Manage all your streaming subscriptions from one simple, intuitive interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Simple Pricing, Maximum Savings</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Pay Per Subscription</h3>
+                    <div class="price">£1 <span>/ subscription / month</span></div>
+                    <p>Perfect for managing just a few subscriptions</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> £1 fee per subscription</li>
+                        <li><i class="fas fa-check"></i> Pause/resume anytime</li>
+                        <li><i class="fas fa-check"></i> No long-term commitment</li>
+                        <li><i class="fas fa-check"></i> Email notifications</li>
+                        <li><i class="fas fa-check"></i> All supported platforms</li>
+                    </ul>
+                </div>
+                <div class="pricing-cta">
+                    <a href="#" class="cta-btn">Choose Plan</a>
+                </div>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Unlimited Plan</h3>
+                    <div class="price">£5 <span>/ month</span></div>
+                    <p>The best value for multiple subscriptions</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Manage ALL subscriptions</li>
+                        <li><i class="fas fa-check"></i> Fixed monthly fee</li>
+                        <li><i class="fas fa-check"></i> Priority customer support</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Subscription recommendations</li>
+                    </ul>
+                </div>
+                <div class="pricing-cta">
+                    <a href="#" class="cta-btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"I've saved over £200 in just six months by turning off subscriptions I wasn't using. Uncord made it so easy to manage everything in one place!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Uncord user since 2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"As a sports fan, I love being able to turn my sports subscriptions on during the season and off during the summer. No more paying for months of no content!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h4>Michael Thompson</h4>
+                        <p>Uncord user since 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section" id="cta">
+        <div class="cta-content">
+            <h2>Ready to Start Saving?</h2>
+            <p>Join thousands of smart streamers who only pay for what they actually watch.</p>
+            <a href="#" class="cta-btn">Sign Up Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Uncord</h3>
+                <p>We Pay, You Save. The smart way to manage your streaming subscriptions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">How It Works</a></li>
+                    <li><a href="#platforms">Supported Platforms</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Uncord. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
