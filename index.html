@@ -43,15 +43,33 @@
             padding: 0 2rem;
         }
         
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
         
         .logo span {
             color: var(--secondary);
+        }
+
+ .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: auto; /* Make height automatic */
+            max-height: 40px; /* Set a maximum height */
+            width: auto; /* Maintain aspect ratio */
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                max-height: 30px; /* Adjust max height for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo img {
+                max-height: 25px; /* Further adjust for even smaller screens */
+            }
         }
         
         .nav-links {
